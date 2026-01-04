@@ -1,0 +1,12 @@
+/* Global Tailwind entry and base theme styles */
+@import 'tailwindcss';
+@reference 'tailwindcss/utilities';
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900;
+  }
+  .dark body {
+    @apply bg-gray-900 text-gray-100;
+  }
+}

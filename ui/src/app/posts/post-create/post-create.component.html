@@ -1,0 +1,24 @@
+<mat-card>
+  <form class="flex flex-col items-start ms-3 my-4" (submit)="onFormSubmit($event)">
+    <mat-form-field>
+      <input matInput type="text" [field]="newPostForm.title" placeholder="Post Title" />
+      @if(newPostForm.title().invalid()){
+      <mat-error>{{ newPostForm.title().errors()[0]?.message }}</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        matInput
+        [field]="newPostForm.content"
+        rows="4"
+        placeholder="Post Content"
+      ></textarea>
+      @if(newPostForm.content().invalid()){
+      <mat-error>{{ newPostForm.content().errors()[0]?.message }}</mat-error>
+      }
+    </mat-form-field>
+    <button matButton="tonal" color="accent" type="submit" [disabled]="newPostForm().invalid()">
+      Save Post
+    </button>
+  </form>
+</mat-card>
