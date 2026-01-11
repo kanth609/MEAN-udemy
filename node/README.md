@@ -35,3 +35,17 @@
 1. Added a function to normalize the port number in the `server.ts` file. Which checks if the port number is a valid number or not and returns the appropriate value.
 2. Added a function to handle the errors and log the specific messages based on the error code. And this function will be binded to the server's `error` event using `server.on('error', Function);`
 3. Added a function to log the server listening message and this function will be binded to the server's `listening` event using `server.on('listening', Function);`
+
+### Adding end point to fetch posts
+
+1. Created a folder named `routes` and inside that created a file named `posts.api.ts`
+2. When ever when we send back the response from the server, we need to seth the appropriate headers.
+   - `res.setHeader('Access-Control-Allow-Origin', '\*');`.
+   - `res.setHeader(
+'Access-Control-Allow-Methods',
+'GET, POST, PUT, PATCH, DELETE, OPTIONS'
+);`.
+   - `res.setHeader(
+'Access-Control-Allow-Headers',
+'Content-Type, Authorization, Origin, X-Requested-With, Accept'
+);`.
