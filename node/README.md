@@ -29,3 +29,9 @@
 9. Now use the `app.listen()` function to start the server on a specific port.
 10. Now run the `server.ts` file using `node server.ts` or `nodemon server.ts` to watch out the changes.
 11. Open the browser and type `localhost:4201` and see the output in the console.
+
+### Adding details on implementation of global error handlers and loggers
+
+1. Added a function to normalize the port number in the `server.ts` file. Which checks if the port number is a valid number or not and returns the appropriate value.
+2. Added a function to handle the errors and log the specific messages based on the error code. And this function will be binded to the server's `error` event using `server.on('error', Function);`
+3. Added a function to log the server listening message and this function will be binded to the server's `listening` event using `server.on('listening', Function);`
