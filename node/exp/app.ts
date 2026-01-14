@@ -1,5 +1,5 @@
 import express from 'express';
-import { postsList } from '../routes/posts.api';
+import { postsList, updatePosts } from '../routes/posts.api';
 
 const app = express();
 
@@ -20,6 +20,8 @@ app.use((_req, res, next) => {
   );
   next();
 });
+
+app.post('/api/posts', updatePosts);
 
 app.use('/api/posts', postsList);
 
