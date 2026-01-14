@@ -1,6 +1,6 @@
-@if (posts().length > 0) {
+@if (postsList().length > 0) {
 <mat-accordion multi="true">
-  @for (post of posts(); track post.id) {
+  @for (post of postsList(); track post.id) {
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       {{ post.title }}
@@ -13,6 +13,6 @@
   </mat-expansion-panel>
   }
 </mat-accordion>
-} @if (posts().length <= 0) {
+} @if (postsList().length <= 0) {
 <p class="info-text mat-body-1">No posts added yet!</p>
 }
