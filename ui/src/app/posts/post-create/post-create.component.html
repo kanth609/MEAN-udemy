@@ -1,7 +1,7 @@
 <mat-card>
   <form class="flex flex-col items-start ms-3 my-4" (submit)="onFormSubmit($event)">
     <mat-form-field>
-      <input matInput type="text" [field]="newPostForm.title" placeholder="Post Title" />
+      <input matInput type="text" [formField]="newPostForm.title" placeholder="Post Title" />
       @if(newPostForm.title().invalid()){
       <mat-error>{{ newPostForm.title().errors()[0]?.message }}</mat-error>
       }
@@ -9,7 +9,7 @@
     <mat-form-field>
       <textarea
         matInput
-        [field]="newPostForm.content"
+        [formField]="newPostForm.content"
         rows="4"
         placeholder="Post Content"
       ></textarea>

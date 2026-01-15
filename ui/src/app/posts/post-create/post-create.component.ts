@@ -1,5 +1,5 @@
 import { Component, output, signal } from '@angular/core';
-import { Field, form, minLength, required } from '@angular/forms/signals';
+import { FormField, form, minLength, required } from '@angular/forms/signals';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
@@ -7,7 +7,7 @@ import { NewPost } from '../../../models/new-post.model';
 
 @Component({
   selector: 'app-post-create',
-  imports: [MatInputModule, MatCardModule, MatButtonModule, Field],
+  imports: [MatInputModule, MatCardModule, MatButtonModule, FormField],
   templateUrl: './post-create.component.html',
   styleUrl: './post-create.component.css',
 })
