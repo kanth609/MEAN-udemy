@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { fetchPosts, fetchPostSuccess } from './posts.action';
+import { fetchPosts, fetchPostSuccess, savePost } from './posts.action';
 import { exhaustMap, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { apiUrl } from '../environments/environment';
@@ -21,4 +21,15 @@ export class PostsEffects {
       })
     );
   });
+
+  // saveOrUpdatePost$ = createEffect(() => {
+  //   return this.action$.pipe(
+  //     ofType(savePost),
+  //     exhaustMap(({ newPost }) => {
+  //       return this.http
+  //         .post<PostResponse>(`${apiUrl}posts`, newPost)
+  //         .pipe(map((response) => fetchPostSuccess({ posts: [] })));
+  //     })
+  //   );
+  // });
 }

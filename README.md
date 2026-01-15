@@ -18,9 +18,9 @@ Quick setup
 cd node
 npm install
 # Development (auto-restart):
-npm run serve
+npm run start:watch
 # Production (run directly):
-npm run start
+npm run start:node
 ```
 
 2. Frontend (Angular)
@@ -33,5 +33,5 @@ npm start
 
 Notes
 
-- Backend `package.json` provides `start` (node server.ts) and `serve` (nodemon server.ts).
+- Backend `package.json` provides `start:node` (node server.ts) and `start:watch` (nodemon server.ts).
 - Frontend `package.json` provides `start` (ng serve), `build`, `watch`, and `test` scripts.
