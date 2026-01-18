@@ -7,10 +7,11 @@ import {
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideStore } from '@ngrx/store';
-import { POSTS_FEATURE_KEY, postsReducer } from '../store/posts.reducer';
+import { postsReducer } from '../store/posts.reducer';
 import { provideEffects } from '@ngrx/effects';
 import { PostsEffects } from '../store/posts.effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { POSTS_FEATURE_KEY } from '../store/index';
 
 export const appConfig: ApplicationConfig = {
   providers: [

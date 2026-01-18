@@ -3,7 +3,7 @@ import { FormField, form, minLength, required } from '@angular/forms/signals';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
-import { NewPost } from '../../../models/new-post.model';
+import { Post } from '../../../models/post.model';
 
 @Component({
   selector: 'app-post-create',
@@ -13,9 +13,10 @@ import { NewPost } from '../../../models/new-post.model';
 })
 export class PostCreate {
   fetchPosts = output<void>();
-  postSubmit = output<NewPost>();
+  postSubmit = output<Post>();
 
-  newPostModel = signal<NewPost>({
+  newPostModel = signal<Post>({
+    id: '',
     title: '',
     content: '',
   });
@@ -34,6 +35,7 @@ export class PostCreate {
     event?.preventDefault();
     this.postSubmit.emit(this.newPostModel());
     this.newPostForm().reset({
+      id: '',
       title: '',
       content: '',
     });

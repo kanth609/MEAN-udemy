@@ -5,7 +5,7 @@ import { PostCreate } from './posts/post-create/post-create.component';
 import { Store } from '@ngrx/store';
 import * as PostsSelectors from '../store/posts.selector';
 import * as PostsActions from '../store/posts.action';
-import { NewPost } from '../models/new-post.model';
+import { Post } from '../models/post.model';
 @Component({
   selector: 'app-root',
   imports: [Header, PostList, PostCreate],
@@ -20,7 +20,7 @@ export class App {
     this.#store.dispatch(PostsActions.fetchPosts());
   }
 
-  onPostSubmit(newPost: NewPost) {
+  onPostSubmit(newPost: Post) {
     this.#store.dispatch(PostsActions.savePost({ newPost }));
   }
 }

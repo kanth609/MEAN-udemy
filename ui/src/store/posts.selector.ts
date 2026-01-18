@@ -1,5 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { POSTS_FEATURE_KEY, PostsState } from './posts.reducer';
+import { PostsState } from './posts.reducer';
+import { POSTS_FEATURE_KEY } from './index';
 
 const postsFeature = createFeatureSelector<PostsState>(POSTS_FEATURE_KEY);
 
