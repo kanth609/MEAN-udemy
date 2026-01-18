@@ -4,10 +4,38 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
-  body {
-    @apply bg-white text-gray-900;
-  }
-  .dark body {
-    @apply bg-gray-900 text-gray-100;
+  .dark {
+    body {
+      @apply bg-gray-900 text-gray-100;
+    }
+
+    mat-toolbar {
+      --mat-toolbar-container-background-color: theme(colors.gray.800);
+      --mat-toolbar-container-text-color: theme(colors.white);
+    }
+
+    mat-button-toggle {
+      --mat-button-toggle-background-color: theme(colors.gray.700);
+      --mat-button-toggle-text-color: theme(colors.white);
+    }
+
+    button[matButton='tonal'] {
+      --mat-button-tonal-disabled-label-text-color: theme(colors.gray.300);
+      --mat-button-tonal-disabled-container-color: theme(colors.gray.600);
+    }
+
+    mat-form-field {
+      --mat-form-field-filled-container-color: theme(colors.gray.500);
+      --mat-form-field-filled-input-text-color: theme(colors.white);
+    }
+
+    .mat-expansion-panel {
+      --mat-expansion-container-background-color: theme(colors.gray.800);
+      --mat-expansion-container-text-color: theme(colors.white);
+    }
+
+    button[matButton='outlined'] {
+      --mat-button-outlined-label-text-color: theme(colors.cyan.200);
+    }
   }
 }
