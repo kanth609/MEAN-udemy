@@ -1,18 +1,19 @@
 @if (postsList().length > 0) {
-<mat-accordion multi="true">
-  @for (post of postsList(); track post.id) {
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      {{ post.title }}
-    </mat-expansion-panel-header>
-    <p>{{ post.content }}</p>
-    <mat-action-row>
-      <button matButton>EDIT</button>
-      <button matButton container-color="red">DELETE</button>
-    </mat-action-row>
-  </mat-expansion-panel>
-  }
-</mat-accordion>
-} @if (postsList().length <= 0) {
-<p class="info-text mat-body-1">No posts added yet!</p>
+  <mat-accordion multi="true">
+    @for (post of postsList(); track post.id) {
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          {{ post.title }}
+        </mat-expansion-panel-header>
+        <p>{{ post.content }}</p>
+        <mat-action-row>
+          <button matButton>EDIT</button>
+          <button matButton>DELETE</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    }
+  </mat-accordion>
+}
+@if (postsList().length <= 0) {
+  <p class="info-text mat-body-1">No posts added yet!</p>
 }

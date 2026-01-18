@@ -1,9 +1,7 @@
 <mat-toolbar color="primary" class="flex justify-between px-4">
   <span>MyMessages</span>
-  <button
-    (click)="toggleTheme()"
-    class="ml-4 px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 text-sm"
-  >
-    {{ isDark() ? 'Light' : 'Dark' }}
-  </button>
+  <mat-button-toggle-group (change)="toggleTheme()">
+    <mat-button-toggle [checked]="isDark()">Dark</mat-button-toggle>
+    <mat-button-toggle [checked]="!isDark()">Light</mat-button-toggle>
+  </mat-button-toggle-group>
 </mat-toolbar>

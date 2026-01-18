@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
   selector: 'app-post-list',
   imports: [MatExpansionModule, MatButtonModule],
   templateUrl: './post-list.component.html',
-  styleUrl: './post-list.component.css',
+  styleUrl: './post-list.component.scss',
 })
 export class PostList {
   posts = input.required<Post[] | undefined>();

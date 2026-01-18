@@ -1,6 +1,8 @@
 /* Global Tailwind entry and base theme styles */
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   body {
     @apply bg-white text-gray-900;
