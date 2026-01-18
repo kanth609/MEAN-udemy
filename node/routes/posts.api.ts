@@ -23,7 +23,7 @@ const app = express();
 export const updatePosts: express.RequestHandler = (req, res, _next) => {
   console.log('Received data:', req.body);
   res.status(200).json({
-    message: 'Post created successfully!',
+    message: 'Post Received successfully!',
     post: req.body,
   });
 };

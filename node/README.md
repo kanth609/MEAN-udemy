@@ -49,3 +49,11 @@
 'Access-Control-Allow-Headers',
 'Content-Type, Authorization, Origin, X-Requested-With, Accept'
 );`.
+
+### Accessing data from request body
+
+1. We need to use a middleware to parse the incoming request body.
+2. we can use the `body-parser` package to parse the request body.
+3. Install the body-parser package using `npm i body-parser`.
+4. Import the body parser and use it for all the incoming requests using `app.use(bodyParser.json())`.
+5. Also we can decode the url encoded data using `app.use(bodyParser.urlencoded({ extended: true }))`, if required.
