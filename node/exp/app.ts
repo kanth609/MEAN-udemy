@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import { postsList, updatePosts } from '../routes/posts.api';
+import { deletePosts, postsList, savePost } from '../routes/posts.api';
 import { connect } from 'mongoose';
 import {
   connectionString,
@@ -36,7 +36,9 @@ app.use(bodyParser.json());
 //   next();
 // });
 
-app.post('/api/posts', updatePosts);
+app.post('/api/posts', savePost);
+
+app.delete('/api/posts/:id', deletePosts);
 
 app.get('/api/posts', postsList);
 
