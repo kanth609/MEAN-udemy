@@ -1,23 +1,34 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { App } from './app.component';
+import { Header } from './header/header.component';
+import { PostCreate } from './posts/post-create/post-create.component';
+import { PostList } from './posts/post-list/post-list.component';
+import { provideMockStore, MockStore } from '@ngrx/store/testing';
+import { POSTS_FEATURE_KEY } from '../store/index';
 
 describe('App', () => {
+  let component: App;
+  let fixture: ComponentFixture<App>;
+  let store: MockStore;
+
+  const initialState = {
+    [POSTS_FEATURE_KEY]: {
+      postList: [],
+    },
+  };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [App],
+      imports: [App, Header, PostList, PostCreate],
+      providers: [provideMockStore({ initialState })],
     }).compileComponents();
+    fixture = TestBed.createComponent(App);
+    component = fixture.componentInstance;
+    store = TestBed.inject(MockStore);
+    await fixture.whenStable();
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(App);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it('should render title', async () => {
-    const fixture = TestBed.createComponent(App);
-    await fixture.whenStable();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ui');
+    expect(component).toBeTruthy();
   });
 });
