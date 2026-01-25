@@ -23,4 +23,8 @@ export class App {
   onPostSubmit(newPost: Post) {
     this.#store.dispatch(PostsActions.savePost({ newPost }));
   }
+
+  postDelete(postId: string) {
+    this.#store.dispatch(PostsActions.deletePost({ postId }));
+  }
 }

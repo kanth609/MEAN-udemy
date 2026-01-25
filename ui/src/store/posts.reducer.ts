@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { fetchPostSuccess, savePost, savePostSuccess } from './posts.action';
+import { deletePostSuccess, fetchPostSuccess, savePost, savePostSuccess } from './posts.action';
 import { Post } from '../models/post.model';
 
 export interface PostsState {
@@ -17,8 +17,12 @@ export const postsReducer = createReducer(
     ...state,
     postList: posts,
   })),
-  on(savePostSuccess, (state, { newPost }) => ({
+  on(savePostSuccess, (state, { posts }) => ({
     ...state,
-    postList: [...state.postList, { ...newPost, id: String(state.postList.length + 1) }],
-  }))
+    postList: posts,
+  })),
+  on(deletePostSuccess, (state, { posts }) => ({
+    ...state,
+    postList: posts,
+  })),
 );

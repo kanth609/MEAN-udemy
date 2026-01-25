@@ -1,6 +1,13 @@
 import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { fetchPosts, fetchPostSuccess, savePost, savePostSuccess } from './posts.action';
+import {
+  deletePost,
+  deletePostSuccess,
+  fetchPosts,
+  fetchPostSuccess,
+  savePost,
+  savePostSuccess,
+} from './posts.action';
 import { exhaustMap, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { PostResponse } from '../models/post.model';
@@ -27,7 +34,18 @@ export class PostsEffects {
       exhaustMap(({ newPost }) => {
         return this.http
           .post<PostResponse>(`/api/posts`, newPost)
-          .pipe(map((response) => savePostSuccess({ newPost })));
+          .pipe(map((res) => savePostSuccess({ posts: res.posts })));
+      }),
+    );
+  });
+
+  deletePost$ = createEffect(() => {
+    return this.action$.pipe(
+      ofType(deletePost),
+      exhaustMap(({ postId }) => {
+        return this.http
+          .delete<PostResponse>(`/api/posts/${postId}`)
+          .pipe(map((res) => deletePostSuccess({ posts: res.posts })));
       }),
     );
   });

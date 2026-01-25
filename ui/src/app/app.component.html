@@ -4,5 +4,5 @@
     (fetchPosts)="onFetchPosts()"
     (postSubmit)="onPostSubmit($event)"
   ></app-post-create>
-  <app-post-list [posts]="posts()"></app-post-list>
+  <app-post-list [posts]="posts()" (postdelete)="postDelete($event)"></app-post-list>
 </main>
