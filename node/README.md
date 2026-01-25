@@ -57,3 +57,23 @@
 3. Install the body-parser package using `npm i body-parser`.
 4. Import the body parser and use it for all the incoming requests using `app.use(bodyParser.json())`.
 5. Also we can decode the url encoded data using `app.use(bodyParser.urlencoded({ extended: true }))`, if required.
+
+# MongoDB
+
+1. A NoSQL database to store the data in a flexible, JSON-like format. Which stores data in collections and documents instead of tables and rows like in relational databases(SQL).
+2. It stored Application data.
+3. Enforces no data schema or relationships between data.
+4. Easily connected with NodeJS/Express environment.
+5. We can also use other NoSQL databases like Firebase, CouchDB, etc. or SQL databases like MySQL, PostgreSQL, etc. with Node.
+6. what is the main difference between SQL and NoSQL databases?
+   | NoSQL | SQL |
+   | ------------- | ------------- |
+   | MongoDB, CouchDB, Firebase | MySQL, PostgreSQL, Oracle |
+   | Enforces no data schema, means in one collection we can have a different type of strucure of data | Enforces a strict schema, means in one table we can have only one type of structure of data |
+   | Less focused on Relationshs, we can have id references between collections but not enforced | Highly focused on Relationships, we can have foreign keys and joins between tables |
+   | Independent documents, each document can have its own structure | Dependent rows, each row must follow the table structure |
+7. Create a MongoDB cluster in the MongoDB Atlas. and setup a Free tier cluster.
+8. Now add your IP address to the IP Whitelist in the Network Access section. when you are running the server locally.(update the IP address when it is deployed to clou, with the server IP address).
+9. Now install mongoose package which builds a connection between NodeJS and MongoDB. using `npm i mongoose`.
+10. Now in a separate model folder, create a respective model file and define the schema using mongoose. [Schema Docs](https://mongoosejs.com/docs/guide.html#definition)
+11. Turn the schema defination into model, by importing `model` from mongoose and using `model('ModelName', schemaName)`. and export the model.
